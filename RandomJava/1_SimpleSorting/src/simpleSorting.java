@@ -11,7 +11,6 @@ public class simpleSorting {
     public static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) { //Starts here
-        addTempNumbers();
         Menu();
     }
 
@@ -71,33 +70,36 @@ public class simpleSorting {
         }
         theList.clear();
 
-        for(int i = 0; i < tempList.size(); i++) {
-            int integer = 0;
-            for(int n = 0; n < tempList.size(); n++) {
-                integer = 0;
+        System.out.println();
 
-                if(integer > tempList.get(n)) {
-                    if(theList.size() > 0) {
-                        for (int k = 0; k < theList.size(); k++) {
-                            System.out.println("theList get: " + theList.get(k) + ", Integer: " + tempList.get(n));
-                            if (tempList.get(n) != theList.get(k) && tempList.get(n) > theList.get(k)) {
-                                integer = tempList.get(n);
-                            }
-                        }
-                    }else{
-                        integer = tempList.get(n);
-                        System.out.println("First Value : " + tempList.get(n));
-                    }
+        for(int n = 0; n < 4; n++) {
+            int smallInt = 0;
+
+            for(int i = 0; i < tempList.size(); i++) {
+                if(smallInt < tempList.get(i)) {
+                    smallInt = tempList.get(i) + 1;
                 }
             }
 
-            theList.add(integer);
-            System.out.println();
+            for (int i = 0; i < tempList.size(); i++) {
+
+                if (smallInt > tempList.get(i)) {
+                    smallInt = tempList.get(i);
+                }
+            }
+
+            for(int i = 0; i < tempList.size(); i++) {
+                if(smallInt == tempList.get(i)) {
+                    tempList.remove(i);
+                }
+            }
+            theList.add(smallInt);
         }
 
-        for(int i = 0; i < tempList.size(); i++) {
+        System.out.println("RESULT: ");
+
+        for(int i = 0; i < theList.size(); i++) {
             System.out.println(theList.get(i));
         }
-
     }
 }
