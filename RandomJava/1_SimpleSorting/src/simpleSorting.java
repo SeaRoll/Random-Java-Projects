@@ -11,15 +11,7 @@ public class simpleSorting {
     private static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) { //Starts here
-        addTempNumbers();
         Menu();
-    }
-
-    private static void addTempNumbers() {
-        theList.add(72);
-        theList.add(-12);
-        theList.add(10);
-        theList.add(-27);
     }
 
     private static void resetScreen() { //Making sure to "reset" screen. Making things better
