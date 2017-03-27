@@ -7,27 +7,28 @@ import java.util.Scanner;
  */
 public class simpleSorting {
 
-    public static ArrayList<Integer> theList = new ArrayList();
-    public static Scanner userInput = new Scanner(System.in);
+    private static ArrayList<Integer> theList = new ArrayList();
+    private static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) { //Starts here
+        addTempNumbers();
         Menu();
     }
 
-    public static void addTempNumbers() {
+    private static void addTempNumbers() {
         theList.add(72);
         theList.add(-12);
         theList.add(10);
         theList.add(-27);
     }
 
-    public static void resetScreen() { //Making sure to "reset" screen. Making things better
+    private static void resetScreen() { //Making sure to "reset" screen. Making things better
         for(int i = 0; i < 99; i++) {
             System.out.println();
         }
     }
 
-    public static void Menu() { //The menu class.
+    private static void Menu() { //The menu class.
         resetScreen();
         System.out.println("WELCOME\n\n1. Add Value\n2. Reset List\n3. Sort the list by smallest number\n4. Quit");
         int chosen = userInput.nextInt();
@@ -47,50 +48,48 @@ public class simpleSorting {
         }
     }
 
-    public static void addToList() { //Add Value to list
+    private static void addToList() { //Add Value to list
         resetScreen();
         System.out.print("Integer Value to add: "); int theValue = userInput.nextInt();
         theList.add(theValue);
         Menu();
     }
 
-    public static void clearList() { //Clear value
+    private static void clearList() { //Clear value
         theList.clear();
         Menu();
     }
 
-    public static void sortListBySmall() { //SORTS LIST BY THE SMALLEST NUMBER
+    private static void sortListBySmall() { //SORTS LIST BY THE SMALLEST NUMBER
         ArrayList<Integer> tempList = new ArrayList();
-        for(int i = 0; i < theList.size(); i++) {
-            tempList.add(theList.get(i));
-            System.out.println("ADDING: " + theList.get(i));
+        for (Integer aTheList1 : theList) {
+            tempList.add(aTheList1);
+            System.out.println("ADDING: " + aTheList1);
         }
-        for(int i = 0; i < tempList.size(); i++) {
-            System.out.println(tempList.get(i));
+        for (Integer aTempList : tempList) {
+            System.out.println(aTempList);
         }
         theList.clear();
 
         System.out.println();
 
         for(int n = 0; n < 4; n++) {
+
             int smallInt = 0;
-
-            for(int i = 0; i < tempList.size(); i++) {
-                if(smallInt < tempList.get(i)) {
-                    smallInt = tempList.get(i) + 1;
-                }
-            }
-
             for (int i = 0; i < tempList.size(); i++) {
 
-                if (smallInt > tempList.get(i)) {
+                if(i > 0) {
+                    if (smallInt > tempList.get(i)) {
+                        smallInt = tempList.get(i);
+                    }
+                }else {
                     smallInt = tempList.get(i);
                 }
             }
 
-            for(int i = 0; i < tempList.size(); i++) {
-                if(smallInt == tempList.get(i)) {
-                    tempList.remove(i);
+            for (Integer aTempList : tempList) {
+                if(smallInt == tempList.get(aTempList)) {
+                    tempList.remove(aTempList);
                 }
             }
             theList.add(smallInt);
@@ -98,8 +97,8 @@ public class simpleSorting {
 
         System.out.println("RESULT: ");
 
-        for(int i = 0; i < theList.size(); i++) {
-            System.out.println(theList.get(i));
+        for (Integer aTheList : theList) {
+            System.out.println(aTheList);
         }
     }
 }
