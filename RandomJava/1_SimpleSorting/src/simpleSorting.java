@@ -65,7 +65,8 @@ public class simpleSorting {
 
         System.out.println();
 
-        for(int n = 0; n < 4; n++) {
+        int listSize = tempList.size();
+        for(int n = 0; n < listSize; n++) {
 
             int smallInt = 0;
             for (int i = 0; i < tempList.size(); i++) {
